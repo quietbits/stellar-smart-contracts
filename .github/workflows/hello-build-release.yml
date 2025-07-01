@@ -31,7 +31,7 @@ jobs:
       # 3️⃣ Set up env vars that will be used in the workflow.
       - name: Set up env vars
         run: |
-          echo "WASM_FILE=target/wasm32v1-none/release/hello-world.wasm" >> $GITHUB_ENV
+          echo "WASM_FILE=target/wasm32v1-none/release/hello_world.wasm" >> $GITHUB_ENV
 
           if [ -n "${{ github.event.inputs.release_name }}" ]; then
             echo "TAG_NAME=${{ github.event.inputs.release_name }}" >> $GITHUB_ENV
@@ -57,14 +57,14 @@ jobs:
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: hello-world.wasm
+          name: hello_world.wasm
           path: ${{ env.WASM_FILE }}
 
       # 7️⃣ Build the attestation for the wasm file.
       - name: Build Attestation for Release
         uses: actions/attest-build-provenance@v1
         with:
-          subject-name: hello-world.wasm
+          subject-name: hello_world.wasm
           subject-path: ${{ env.WASM_FILE }}
 
       # 8️⃣ Make a new release.
