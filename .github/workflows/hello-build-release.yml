@@ -1,10 +1,10 @@
 ---
-name: Build and Release
+name: Build and Release Hello World Contract
 on:
   push:
-    # 1️⃣ Create a release whenever a new tag like `v0.0.0` is pushed.
+    # 1️⃣ Create a release whenever a new tag like `hello-v0.0.0` is pushed.
     tags:
-      - "v*"
+      - "hello-v*"
 
   # 2️⃣ Create a release manually from GitHub's user interface.
   workflow_dispatch:
